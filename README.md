@@ -11,7 +11,8 @@ INSTRUCTIONS:
 7) Ensure all modules are installed before running all cells 
 8) Note that cells containing '(FOR TEST SET)' are meant for test set data only
 9) Refer to 'More explanation on smooth_features function' file for further elaboration on how smooth_features function works	
-10) Feel free to contact me at khooweiquan2014@gmail.com for any queries
+10) Refer to 'More explanation on create_features function' file for further elaboration on why combo features are used	
+11) Feel free to contact me at khooweiquan2014@gmail.com for any queries
 
 Finally, A BIG THANK-YOU to grab for organising this competition!
 Because of this, I have learnt so much regarding accelerators, gyroscopes & driving telematics :)
