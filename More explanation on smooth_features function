@@ -1,0 +1,20 @@
+More elaboration regarding smooth_features function
+
+I separated the occurence of inaccurate values into 3 scenarios:
+1) Inaccurate values occurrred once trip starts, lasting consecutively for some time 
+2) Inaccurate values occurred in the middle of the trip, in between accurate values
+3) Inaccurate values occured at a point & up to end of trip
+
+For scenario 1, since there is no accurate value before the inaccurate value occurred, 
+the function drops the entire row containing the inaccurate value
+
+For scenario 3, since there is no accurate value after the inaccurate value occurred, 
+the function drops the entire row containing the inaccurate value
+
+For scenario 2, function finds the nearest accurate values on both side of the inaccurate value and calculate their difference.
+Afterwhich, a value is assigned in place of the inaccurate value such that values are gradually changing from one accurate value to the next(with the inaccurate value replaced in between both of them)
+
+The same logic is used for negative_function, which deals with negative speed values using the explanations above.
+
+Literature has suggested low-pass/high-pass/band-pass/kalman filters. 
+However, I do not understand how they work and hence have come up with my own solution.
