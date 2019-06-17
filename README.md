@@ -1,5 +1,5 @@
 # grab
-This folder contains the training datasets, label dataset &amp; model code
+This folder contains the label dataset & model code
 INSTRUCTIONS:
 1) Download Grab_final.ipynb & upload to jupyter notebook
 2) Ensure that all training sets, training label set & test sets have been uploaded to jupyter notebook
