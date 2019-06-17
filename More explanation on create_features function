@@ -1,0 +1,35 @@
+If you have noticed, some of the features in create_features function are products of acceleration,speed & gyroscope values.
+In fact, all of them required filtering out positive/negative values.
+Here, I will explain why datasets are filtered in such a way before products are made.
+
+Firstly, open this url: https://myukk.org/SM2017/sm_pdf/SM1674.pdf and proceed to page 2271
+You should see pictures of accelerometer & gyroscope orientations.
+
+Now,according to most studies, dangerous driving is a result of any of the following:
+1)Hard-brakes
+2)Hard-accelerations
+3)Hard-turns
+
+As such, I have decided to incorporate features that helps to explain the above 3 scenarios.
+1)Hard-brakes: from the pictures, a hardbrake should cause negative acc_y & positive gyro_x
+As such, I extracted braking events by filtering out rows with positive acc_y & negative gyro_x values before doing summary stats on them
+
+2)Hard-accelerations: from the pictures, a hardacc should cause positive acc_y & negative gyro_x
+As such, I extracted acc events by filtering out rows with negative acc_y & positive gyro_x values before doing summary stats on them
+
+3)Hard-turns
+I split them into hard-left & hard-right turns
+a)Hard-left: from the pictures, a hard-left should cause positive gyro_z & negative acc_x 
+As such, I extracted hard-left events by filtering out rows with negative gyro_z & positive acc_x values before doing summary stats on them
+
+b)Hard-right: from the pictures, a hard-right should cause negative gyro_z & positive acc_x 
+As such, I extracted hard-right events by filtering out rows with positive gyro_z & negative acc_x values before doing summary stats on them
+
+4)In addition, I also included a hard-bump event where a car approaches a bump at high-speed
+from the pictures, this should cause positive acc_z & most-probably positive gyro_x
+As such, I extracted such events by filtering out rows with negative acc_z & negative gyro_x values before doing summary stats on them
+
+Afterword:
+Of course, much experimenting remains to be done. There are tonnes of summary stats available out there.
+Unfortunately, due to time-constraints, I can only do the basics and see their effects on the model.
+I do hope that I get the chance to expand upon this work in the future.
